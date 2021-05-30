@@ -36,6 +36,7 @@ const Main = styled.main``;
 
 export const AuthenticatedApp = () => {
   const { logout, user } = useAuth();
+
   return (
     <Container>
       <Header between={true}>
