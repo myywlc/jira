@@ -79,12 +79,12 @@ export const useUndo = <T>(initialPresent: T) => {
 
   const set = useCallback(
     (newPresent: T) => dispatch({ type: SET, newPresent }),
-    []
+    [],
   );
 
   const reset = useCallback(
     (newPresent: T) => dispatch({ type: RESET, newPresent }),
-    []
+    [],
   );
 
   return [state, { set, reset, undo, redo, canUndo, canRedo }] as const;
