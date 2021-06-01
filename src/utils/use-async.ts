@@ -19,7 +19,7 @@ const defaultConfig = {
 
 export const useAsync = <D>(
   initialState?: State<D>,
-  initialConfig?: typeof defaultConfig
+  initialConfig?: typeof defaultConfig,
 ) => {
   const config = { ...defaultConfig, ...initialConfig };
   const [state, setState] = useState<State<D>>({
@@ -39,7 +39,7 @@ export const useAsync = <D>(
         stat: 'success',
         error: null,
       }),
-    []
+    [],
   );
 
   const setError = useCallback(
@@ -49,7 +49,7 @@ export const useAsync = <D>(
         stat: 'error',
         data: null,
       }),
-    []
+    [],
   );
 
   // run 用来触发异步请求
@@ -76,7 +76,7 @@ export const useAsync = <D>(
           return error;
         });
     },
-    [config.throwOnError, mountedRef, setData, setError]
+    [config.throwOnError, mountedRef, setData, setError],
   );
 
   return {

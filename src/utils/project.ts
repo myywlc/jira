@@ -10,7 +10,7 @@ export const useProjects = (param?: Partial<Project>) => {
 
   const fetchProjects = useCallback(
     () => client('projects', { data: cleanObject(param || {}) }),
-    [param, client]
+    [param, client],
   );
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const useEditProject = () => {
       client(`projects/${params.id}`, {
         data: params,
         method: 'PATCH',
-      })
+      }),
     );
   };
   return {
@@ -47,7 +47,7 @@ export const useAddProject = () => {
       client(`projects/${params.id}`, {
         data: params,
         method: 'POST',
-      })
+      }),
     );
   };
   return {

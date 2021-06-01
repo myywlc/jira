@@ -15,7 +15,7 @@ export const useUrlQueryParam = <K extends string>(keys: K[]) => {
         subset(Object.fromEntries(searchParams), stateKeys) as {
           [key in K]: string;
         },
-      [searchParams, stateKeys]
+      [searchParams, stateKeys],
     ),
     (params: Partial<{ [key in K]: unknown }>) => {
       // iterator

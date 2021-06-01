@@ -7,7 +7,7 @@ export const useProjectsSearchParams = () => {
   return [
     useMemo(
       () => ({ ...param, personId: Number(param.personId) || undefined }),
-      [param]
+      [param],
     ),
     setParam,
   ] as const;

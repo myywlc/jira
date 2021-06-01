@@ -12,7 +12,7 @@ interface Config extends RequestInit {
 
 export const http = async (
   endpoint: string,
-  { data, token, headers, ...customConfig }: Config = {}
+  { data, token, headers, ...customConfig }: Config = {},
 ) => {
   const config = {
     method: 'GET',
@@ -58,6 +58,6 @@ export const useHttp = () => {
   return useCallback(
     (...[endpoint, config]: Parameters<typeof http>) =>
       http(endpoint, { ...config, token: user?.token }),
-    [user?.token]
+    [user?.token],
   );
 };
