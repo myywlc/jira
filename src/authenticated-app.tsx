@@ -48,10 +48,7 @@ export const AuthenticatedApp = () => {
     <Container>
       <PageHeader
         projectButton={
-          <ButtonNoPadding
-            onClick={() => setProjectModalOpen(true)}
-            type={'link'}
-          >
+          <ButtonNoPadding onClick={() => setProjectModalOpen(true)} type={'link'}>
             创建项目
           </ButtonNoPadding>
         }
@@ -64,28 +61,19 @@ export const AuthenticatedApp = () => {
               element={
                 <ProjectListScreen
                   projectButton={
-                    <ButtonNoPadding
-                      onClick={() => setProjectModalOpen(true)}
-                      type={'link'}
-                    >
+                    <ButtonNoPadding onClick={() => setProjectModalOpen(true)} type={'link'}>
                       创建项目
                     </ButtonNoPadding>
                   }
                 />
               }
             />
-            <Route
-              path={'/projects/:projectId/*'}
-              element={<ProjectScreen />}
-            />
+            <Route path={'/projects/:projectId/*'} element={<ProjectScreen />} />
             <Navigate to={'/projects'} />
           </Routes>
         </Router>
       </Main>
-      <ProjectModal
-        projectModalOpen={projectModalOpen}
-        onClose={() => setProjectModalOpen(false)}
-      />
+      <ProjectModal projectModalOpen={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </Container>
   );
 };
@@ -109,6 +97,7 @@ const PageHeader = (props: { projectButton: JSX.Element }) => {
 
 const User = () => {
   const { logout, user } = useAuth();
+
   return (
     <Dropdown
       overlay={

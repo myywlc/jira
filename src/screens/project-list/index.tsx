@@ -8,7 +8,6 @@ import { useProjects } from 'utils/project';
 import { useUsers } from 'utils/user';
 import { useProjectsSearchParams } from 'screens/project-list/util';
 import { Row } from 'components/lib';
-
 // 状态提升可以让组件共享状态，但是容易造成 prop drilling
 
 // 基本类型，可以放到依赖里；组件状态，可以放到依赖里；非组件状态的对象，绝不可以放到依赖里
@@ -23,12 +22,7 @@ const Container = styled.div`
 export const ProjectListScreen = (props: { projectButton: JSX.Element }) => {
   useDocumentTitle('项目列表', false);
   const [param, setParam] = useProjectsSearchParams();
-  const {
-    isLoading,
-    error,
-    data: list,
-    retry,
-  } = useProjects(useDebounce(param, 200));
+  const { isLoading, error, data: list, retry } = useProjects(useDebounce(param, 200));
   const { data: users } = useUsers();
 
   return (
@@ -38,9 +32,7 @@ export const ProjectListScreen = (props: { projectButton: JSX.Element }) => {
         {props.projectButton}
       </Row>
       <SearchPanel users={users || []} param={param} setParam={setParam} />
-      {error ? (
-        <Typography.Text type={'danger'}>{error.message}</Typography.Text>
-      ) : null}
+      {error ? <Typography.Text type={'danger'}>{error.message}</Typography.Text> : null}
       <List
         projectButton={props.projectButton}
         refresh={retry}

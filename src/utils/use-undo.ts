@@ -74,18 +74,11 @@ export const useUndo = <T>(initialPresent: T) => {
   const canRedo = state.future.length !== 0;
 
   const undo = useCallback(() => dispatch({ type: UNDO }), []);
-
   const redo = useCallback(() => dispatch({ type: REDO }), []);
 
-  const set = useCallback(
-    (newPresent: T) => dispatch({ type: SET, newPresent }),
-    [],
-  );
+  const set = useCallback((newPresent: T) => dispatch({ type: SET, newPresent }), []);
 
-  const reset = useCallback(
-    (newPresent: T) => dispatch({ type: RESET, newPresent }),
-    [],
-  );
+  const reset = useCallback((newPresent: T) => dispatch({ type: RESET, newPresent }), []);
 
   return [state, { set, reset, undo, redo, canUndo, canRedo }] as const;
 };

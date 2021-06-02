@@ -34,15 +34,7 @@ const AuthContext =
 AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const {
-    data: user,
-    error,
-    isLoading,
-    isIdle,
-    isError,
-    run,
-    setData: setUser,
-  } = useAsync<User | null>();
+  const { data: user, error, isLoading, isIdle, isError, run, setData: setUser } = useAsync<User | null>();
   // point free
   const login = (form: AuthForm) => auth.login(form).then(setUser);
   const register = (form: AuthForm) => auth.register(form).then(setUser);
@@ -60,12 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return <FullPageErrorFallback error={error} />;
   }
 
-  return (
-    <AuthContext.Provider
-      children={children}
-      value={{ user, login, register, logout }}
-    />
-  );
+  return <AuthContext.Provider children={children} value={{ user, login, register, logout }} />;
 };
 
 export const useAuth = () => {

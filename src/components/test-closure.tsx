@@ -11,7 +11,6 @@ const testClosure = () => {
       console.log(message);
     };
   };
-
   return effect;
 };
 // 执行test，返回effect函数

@@ -8,7 +8,6 @@ import './App.css';
 
 function App() {
   const { user } = useAuth();
-
   return (
     <div className="App">
       <ErrorBoundary fallbackRender={FullPageErrorFallback}>
