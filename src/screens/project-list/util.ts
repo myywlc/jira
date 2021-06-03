@@ -13,6 +13,7 @@ export const useProjectsSearchParams = () => {
 export const useProjectModal = () => {
   const [{ projectCreate }, setProjectCreate] = useUrlQueryParam(['projectCreate']);
   const [{ editingProjectId }, setEditingProjectId] = useUrlQueryParam(['editingProjectId']);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setUrlParams] = useSearchParams();
   const { data: editingProject, isLoading } = useProject(Number(editingProjectId));
 

@@ -1,4 +1,3 @@
-import { useAsync } from 'utils/use-async';
 import { Project } from 'screens/project-list/list';
 import { useHttp } from 'utils/http';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
