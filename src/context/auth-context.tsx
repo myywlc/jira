@@ -5,11 +5,7 @@ import { http } from 'utils/http';
 import { useMount } from 'utils';
 import { useAsync } from 'utils/use-async';
 import { FullPageErrorFallback, FullPageLoading } from 'components/lib';
-
-interface AuthForm {
-  username: string;
-  password: string;
-}
+import { AuthForm } from 'types';
 
 const bootstrapUser = async () => {
   let user = null;
@@ -20,7 +16,7 @@ const bootstrapUser = async () => {
   }
   return user;
 };
-//
+
 type AuthContextData = {
   user: User | null;
   register: (form: AuthForm) => Promise<void>;

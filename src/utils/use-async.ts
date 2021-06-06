@@ -61,7 +61,7 @@ export const useAsync = <D>(initialState?: State<D>, initialConfig?: typeof defa
       }
       setRetry(() => () => {
         if (runConfig?.retry) {
-          run(runConfig?.retry(), runConfig);
+          run(runConfig.retry(), runConfig);
         }
       });
       safeDispatch({ stat: 'loading' });
