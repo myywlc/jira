@@ -21,16 +21,13 @@ const bootstrapUser = async () => {
   return user;
 };
 
-const AuthContext =
-  React.createContext<
-    | {
-        user: User | null;
-        register: (form: AuthForm) => Promise<void>;
-        login: (form: AuthForm) => Promise<void>;
-        logout: () => Promise<void>;
-      }
-    | undefined
-  >(undefined);
+type AuthContextData = {
+  user: User | null;
+  register: (form: AuthForm) => Promise<void>;
+  login: (form: AuthForm) => Promise<void>;
+  logout: () => Promise<void>;
+};
+const AuthContext = React.createContext<AuthContextData | undefined>(undefined);
 AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
