@@ -20,7 +20,7 @@ const bootstrapUser = async () => {
   }
   return user;
 };
-
+//
 type AuthContextData = {
   user: User | null;
   register: (form: AuthForm) => Promise<void>;
