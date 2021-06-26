@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import * as auth from 'auth-provider';
-import { User } from 'screens/project-list/search-panel';
 import { http } from 'utils/http';
 import { useMount } from 'utils';
 import { useAsync } from 'utils/use-async';
 import { FullPageErrorFallback, FullPageLoading } from 'components/lib';
 import { AuthForm } from 'types';
 import { useQueryClient } from 'react-query';
+import { User } from '../types/user';
 
 const bootstrapUser = async () => {
   let user = null;
