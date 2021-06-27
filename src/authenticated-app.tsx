@@ -25,6 +25,7 @@ import { ProjectPopover } from 'components/project-popover';
  */
 
 const Container = styled.div`
+  height: 100vh;
   display: grid;
   grid-template-rows: 6rem 1fr;
 `;
