@@ -22,7 +22,7 @@ export const ProjectListScreen = () => {
 
   return (
     <ScreenContainer>
-      <Row between={true}>
+      <Row marginBottom={2}>
         <h1>项目列表</h1>
         <ButtonNoPadding onClick={open} type={'link'}>
           创建项目
