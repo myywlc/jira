@@ -45,22 +45,24 @@ const Main = styled.main`
   overflow: hidden;
 `;
 
-// prop drilling
-export const AuthenticatedApp = () => {
+const User = () => {
+  const { logout, user } = useAuth();
   return (
-    <Container>
-      <Router>
-        <PageHeader />
-        <Main>
-          <Routes>
-            <Route path={'/projects'} element={<ProjectListScreen />} />
-            <Route path={'/projects/:projectId/*'} element={<ProjectScreen />} />
-            <Navigate to={'/projects'} />
-          </Routes>
-        </Main>
-        <ProjectModal />
-      </Router>
-    </Container>
+    <Dropdown
+      overlay={
+        <Menu>
+          <Menu.Item key={'logout'}>
+            <Button onClick={logout} type={'link'}>
+              登出
+            </Button>
+          </Menu.Item>
+        </Menu>
+      }
+    >
+      <Button type={'link'} onClick={(e) => e.preventDefault()}>
+        Hi, {user?.name}
+      </Button>
+    </Dropdown>
   );
 };
 
@@ -81,24 +83,23 @@ const PageHeader = () => {
   );
 };
 
-const User = () => {
-  const { logout, user } = useAuth();
-
+// prop drilling
+const AuthenticatedApp = () => {
   return (
-    <Dropdown
-      overlay={
-        <Menu>
-          <Menu.Item key={'logout'}>
-            <Button onClick={logout} type={'link'}>
-              登出
-            </Button>
-          </Menu.Item>
-        </Menu>
-      }
-    >
-      <Button type={'link'} onClick={(e) => e.preventDefault()}>
-        Hi, {user?.name}
-      </Button>
-    </Dropdown>
+    <Container>
+      <Router>
+        <PageHeader />
+        <Main>
+          <Routes>
+            <Route path={'/projects'} element={<ProjectListScreen />} />
+            <Route path={'/projects/:projectId/*'} element={<ProjectScreen />} />
+            <Navigate to={'/projects'} />
+          </Routes>
+        </Main>
+        <ProjectModal />
+      </Router>
+    </Container>
   );
 };
+
+export default AuthenticatedApp;
