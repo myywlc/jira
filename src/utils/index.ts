@@ -20,8 +20,7 @@ export const cleanObject = (object?: { [key: string]: unknown }) => {
 export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [callback]);
 };
 
 export const useDebounce = <V>(value: V, delay?: number) => {
